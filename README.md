@@ -1,9 +1,9 @@
-# unitemplate
+# Gratsch
 
 ## Usage
 
 ```typ
-#import "@preview/unitemplate": config, prob
+#import "@preview/gratsch:0.0.1": config, prob
 
 #show: config.with(
   course-name: "Course name",

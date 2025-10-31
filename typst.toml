@@ -1,13 +1,13 @@
 [package]
-name = "unitemplate"
-version = "0.2.0"
+name = "Gratsch"
+version = "0.0.1"
 authors = ["Elia Vandini"]
 license = "MIT"
-description = "A personal Typst template for homework"
+description = "A Typst template for homework"
 entrypoint = "export.typ"
 categories = ["report"]
 keywords = ["homework", "template"]
-repository = "https://github.com/eliavandini/unitemplate"
+repository = "https://github.com/eliavandini/Gratsch"
 
 [template]
 path = "template"
