@@ -1,4 +1,4 @@
-# unitemplate - 苺
+# unitemplate
 
 ## Usage
 
