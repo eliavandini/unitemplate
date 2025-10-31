@@ -6,14 +6,14 @@
         #align(center)[
           #set text(font: (
             "New Computer Modern",
-            "Source Han Serif SC",
+            "Source Serif 4",
           ))
           #text(size: 28pt, weight: "bold")[
             #meta.course-name
           ]
 
           #text(size: 18pt)[
-            #meta.serial-str
+            #meta.subtitle
           ]
 
           #text(size: 12pt, font: "STFangsong")[
@@ -28,14 +28,14 @@
         #align(center)[
           #set text(font: (
             "New Computer Modern",
-            "Source Han Serif SC",
+            "Source Serif 4",
           ))
           #text(size: 28pt, weight: "bold")[
             #meta.course-name
           ]
 
           #text(size: 18pt)[
-            #meta.serial-str
+            #meta.subtitle
           ]
 
           #text(size: 12pt, font: "STFangsong")[
@@ -57,15 +57,15 @@
     fonts: (
       heading: (
         "New Computer Modern",
-        "Source Han Serif SC",
+        "Source Serif 4",
       ),
       text: (
         "New Computer Modern",
-        "Source Han Serif SC",
+        "Source Serif 4",
       ),
       equation: (
         "New Computer Modern Math",
-        "Source Han Serif SC",
+        "Source Serif 4",
       ),
     ),
   )

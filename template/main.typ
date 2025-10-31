@@ -1,18 +1,19 @@
-#import "@preview/ichigo:0.2.0": config, prob
+#import "@preview/unitemplate": config, prob
 
 #show: config.with(
-  course-name: "Typst 使用小练习",
-  serial-str: "第 1 次作业",
+  course-name: "Course name",
+  subtitle: "Assignment nr x",
+  date-str: datetime( year: 2025, month: 10, day: 30).display(),
   author-info: [
-    sjfhsjfh from PKU-Typst
+    First name last name
   ],
-  author-names: "sjfhsjfh",
+  author-names: "First name last name",
   title-style: "simple",
   theme-name: "sketch",
   heading-numberings: ("1.", none, "(1)", "a."),
 )
 
-#set text(lang: "zh")
+#set text(lang: "en")
 
 #prob(title: "Warm-up")[
   尝试用 Typst 完成以下任务：

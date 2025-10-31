@@ -9,7 +9,8 @@ Homework Template - 作业模板
 
 #show: config.with(
   course-name: "Typst 使用小练习",
-  serial-str: "第 1 次作业",
+  subtitle: "第 1 次作业",
+  date-str: "第 1 次作业",
   author-info: [
     sjfhsjfh from PKU-Typst
   ],
@@ -28,11 +29,3 @@ Homework Template - 作业模板
   #f(25)
 ]
 ```
-
-## Documentation - 文档
-
-[Click to download - 点击下载](https://github.com/PKU-Typst/ichigo/releases/download/v0.2.0/documentation.pdf)
-
-## TODO - 待办
-
-- [ ] Theme list & documentation

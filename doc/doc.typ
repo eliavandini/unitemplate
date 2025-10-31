@@ -63,11 +63,11 @@
 
 // Layout
 
-#set text(lang: "zh")
+#set text(lang: "en")
 
 #set text(font: (
   "New Computer Modern",
-  "Source Han Serif SC",
+  "Source Serif 4",
 ))
 
 #show ref: underline
@@ -111,7 +111,8 @@ ichigo 提供了一个功能库和一份文档模板, 对功能定制要求不�
 // @typstyle off
 #param-table(
   `doc`, `content`, none, [文档内容],
-  `serial-str`, `str | none`, `none`, [作业编号(e.g. 第四周作业), 必须主动传入, 若希望留空请使用 `""`],
+  `subtitle`, `str | none`, `none`, [作业编号(e.g. 第四周作业), 必须主动传入, 若希望留空请使用 `""`],
+  `date-str`, `str | none`, `none`, [作业编号(e.g. 第四周作业), 必须主动传入, 若希望留空请使用 `""`],
   `theme-name`, `str`, `"simple"`, [主题名称, 可用主题见@available-themes],
   `title-style`, `str | none`, `"whole-page"`, [标题样式, 可选值为 `"whole-page"`, `"simple"` 和 `none`],
   `author-info`, `content`, `[]`, [作者信息, 默认为 `[]`],
@@ -127,7 +128,8 @@ ichigo 提供了一个功能库和一份文档模板, 对功能定制要求不�
 ```typ
 #show: config.with(
   course-name: "高等 Typst 学",
-  serial-str: "第一次作业",
+  subtitle: "第一次作业",
+  date-str: datetime.today().display(),
   author-names: "?sjfh",
   author-info: [sjfh from PKU-Typst]
 )
@@ -204,7 +206,7 @@ ichigo 提供了一个功能库和一份文档模板, 对功能定制要求不�
 // @typstyle off
 #dict-struct(
   `course-name`, `str`, [课程名称],
-  `serial-str`, `str`, [作业编号],
+  `date-str`, `str`, [作业编号],
   `author-info`, `content`, [作者信息],
   `author-names`, `str | array`, [作者姓名(列表), 用于填入文档的 metadata],
   `..opt`, `dictionary`, [其他参数, 可用于接受主题相关选项],

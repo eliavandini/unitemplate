@@ -1,11 +1,12 @@
-#import "@preview/valkyrie:0.2.1" as z
+#import "@preview/valkyrie:0.2.2" as z
 
 #import "themes.typ": get-theme, THEMES
 
 /// Document meta information
 #let meta-schema = z.dictionary((
   course-name: z.string(),
-  serial-str: z.string(),
+  subtitle: z.string(),
+  date-str: z.string(),
   author-info: z.content(),
   author-names: z.either(z.tuple(), z.string()),
 ))

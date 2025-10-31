@@ -1,5 +1,5 @@
-#let logo_path = "./res/PKU.svg"
-#let logo_str = read(logo_path).replace("920f14", "cccccc")
+#let logo_path = "./res/UniBZ-Logo.svg"
+// #let logo_str = read(logo_path).replace("920f14", "cccccc")
 
 #let whole-page-title(meta, logo) = {
   set page(margin: 0pt, header: none, footer: none)
@@ -28,7 +28,7 @@
     text(
       meta.course-name,
       size: 36pt,
-      font: ("Source Han Serif SC"),
+      font: ("Source Serif 4"),
       baseline: -0.6em,
     ),
   )
@@ -39,7 +39,7 @@
     box([
       #set text(
         size: 20pt,
-        font: ("Source Han Serif SC"),
+        font: ("Source Serif 4"),
         baseline: 1em,
       )
       #set align(horizon)
@@ -70,7 +70,7 @@
       block[
         #set text(font: (
           "New Computer Modern",
-          "Source Han Serif SC",
+          "Source Serif 4",
         ))
 
         #text(size: 28pt, weight: "bold")[
@@ -78,10 +78,10 @@
         ]
 
         #text(size: 18pt)[
-          #meta.serial-str
+          #meta.subtitle
         ]
 
-        #text(size: 12pt, font: "STFangsong")[
+        #text(size: 12pt, font: "Times New Roman")[
           #meta.author-info
         ]
       ]
@@ -90,11 +90,11 @@
 }
 
 #let header = meta => {
-  set text(size: 10.5pt, font: "Source Han Serif SC")
+  set text(size: 10.5pt, font: "Source Serif 4")
   block(
     grid(
       columns: (1fr, 1fr),
-      align(left + horizon, meta.course-name), align(right + horizon, meta.serial-str),
+      align(left + horizon, meta.course-name), align(right + horizon, meta.date-str),
     ),
   )
   place(line(length: 100%, stroke: 0.5pt), dy: 0.5em)
@@ -113,7 +113,7 @@
   let logo = if "logo" in meta {
     meta.logo
   } else {
-    image.decode(logo_str)
+    image(logo_path)
   }
   return (
     title: (
@@ -122,7 +122,7 @@
         pagebreak(weak: true)
       },
       simple: {
-        set align(center)
+        set align(left)
         block(simple-title(meta, logo))
       },
     ),
@@ -133,15 +133,15 @@
     fonts: (
       heading: (
         "New Computer Modern",
-        "Source Han Serif SC",
+        "Source Serif 4",
       ),
       text: (
         "New Computer Modern",
-        "Source Han Serif SC",
+        "Source Serif 4",
       ),
       equation: (
         "New Computer Modern Math",
-        "Source Han Serif SC",
+        "Source Serif 4",
       ),
     ),
   )
