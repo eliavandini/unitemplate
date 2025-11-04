@@ -1,4 +1,4 @@
-#import "@local/gratsch:0.0.1": config, prob
+#import "@local/gratsch:0.0.2": config, prob
 
 #show: config.with(
   course-name: "Course name",
