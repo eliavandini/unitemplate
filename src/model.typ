@@ -1,6 +1,7 @@
 #import "@preview/valkyrie:0.2.2" as z
 
 #import "themes.typ": get-theme, THEMES
+#import "globs.typ": languages
 
 /// Document meta information
 #let meta-schema = z.dictionary((
@@ -31,6 +32,7 @@
 ))
 
 #let title-style = z.choice(("whole-page", "simple", "none"))
+#let lang = z.choice((..languages))
 
 #let theme-name = z.choice(THEMES)
 

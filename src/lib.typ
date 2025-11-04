@@ -4,11 +4,8 @@
 
 #import "model.typ" as model
 #import "title.typ": title-content
+#import "globs.typ": languages
 
-#let languages = (
-  "zh",
-  "en",
-)
 #let lgf_db = eval(load_ftl_data("./L10n", languages))
 #let linguify = linguify.with(from: lgf_db)
 
@@ -21,8 +18,9 @@
 /// - author-info (content): the author information, default to `[]`
 /// - author-names (array | str): the array of author names, default to `""`
 /// - heading-numberings (array): the heading numbering format, default to `(none, none, "(1)", "a.")`
-/// - title-style (str | none): expected to be `"whole-page"`, `none` or `"simple"`, default to `"whole-page"`
+/// - title-style (str | none): expected to be `"whole-page"`, `none` or `"simple"`, default to `"simple"`
 /// - theme-name (str): the name of the theme, default to `"simple"`
+/// - lang (str): the language of the document.
 /// - custom-theme (any): the custom theme function, default to `none`
 /// - opt (arguments): other options, including theme-specific options
 /// -> doc
@@ -33,9 +31,10 @@
   date-str: none,
   author-info: [],
   author-names: "",
-  heading-numberings: (none, none, "({3:1})", "{4:a}."),
-  title-style: "whole-page",
+  heading-numberings: ("1.", "1.a)", none, none),
+  title-style: "simple",
   theme-name: "simple",
+  lang: "en",
   custom-theme: none,
   ..opt,
 ) = {
@@ -45,10 +44,12 @@
     date-str: date-str,
     author-info: author-info,
     author-names: author-names,
+    lang: lang,
     ..opt.named(),
   )
   
   title-style = z.parse(title-style, model.title-style)
+  lang = z.parse(lang, model.lang)
   meta = opt.named() + z.parse(meta, model.meta-schema)
   z.parse(theme-name, model.theme-name)
   
@@ -75,6 +76,9 @@
     
     // Heading numbering
     set heading(numbering: num-func)
+
+    // Document language
+    set text(lang: lang)
     
     // Page header & footer
     set page(

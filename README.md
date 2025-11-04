@@ -15,10 +15,8 @@
   author-names: "First name last name",
   title-style: "simple",
   theme-name: "sketch",
-  heading-numberings: ("1.", none, "(1)", "a."),
+  lang: "en"
 )
-
-#set text(lang: "en")
 
 #prob[
   Calculate the 25th number in the Fibonacci sequence using Typst

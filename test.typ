@@ -5,81 +5,90 @@
   subtitle: "Assignment nr x",
   date-str: datetime(year: 2025, month: 10, day: 30).display(),
   author-info: [
-    First name last name
+    First name last name\
+    email
   ],
   author-names: "First name last name",
   title-style: "simple",
   theme-name: "sketch",
-  heading-numberings: ("1.", none, "(1)", "a."),
+  heading-numberings: ("1.", "1.a)", none, none),
+  lang: "de"
 )
 
-#set text(lang: "en")
+=
+==
+=== eiurfnwiererg
+========
+arjahfaewf
+strhsththsrth
+th
 
-my 
 
-// #prob(title: "Warm-up")[
-//   = 
-//   Fibonacci
-// ][
-//   = 
-//   ```typ
-//   #let fib(n) = {
-//     if n in (1, 2) {
-//       return 1
-//     }
-//     return fib(n - 1) + fib(n - 2)
-//   }
-//   #fib(25)
-//   ```
+hs\s
+hsrthsrthrshstrh
+#prob(title: "Warm-up")[
+  = 
+  Fibonacci
+][
+  = 
+  ```typ
+  #let fib(n) = {
+    if n in (1, 2) {
+      return 1
+    }
+    return fib(n - 1) + fib(n - 2)
+  }
+  #fib(25)
+  ```
   
-//   #let fib(n) = {
-//     if n in (1, 2) {
-//       return 1
-//     }
-//     return fib(n - 1) + fib(n - 2)
-//   }
+  #let fib(n) = {
+    if n in (1, 2) {
+      return 1
+    }
+    return fib(n - 1) + fib(n - 2)
+  }
   
-//   #fib(25)
+  #fib(25)
   
-//   $
-//     f_n = 1 / sqrt(5) (((1 + sqrt(5)) / 2)^n - ((1 - sqrt(5)) / 2)^n)
-//   $
+  $
+    f_n = 1 / sqrt(5) (((1 + sqrt(5)) / 2)^n - ((1 - sqrt(5)) / 2)^n)
+  $
   
-//   ```typ
-//   #let fib(n) = {
-//     let lambda-1 = (1 + calc.sqrt(5)) / 2
-//     let lambda-2 = (1 - calc.sqrt(5)) / 2
-//     return calc.round((1 / calc.sqrt(5)) * calc.pow(lambda-1, n) - (1 / calc.sqrt(5)) * calc.pow(lambda-2, n))
-//   }
-//   #fib(25)
-//   ```
+  ```typ
+  #let fib(n) = {
+    let lambda-1 = (1 + calc.sqrt(5)) / 2
+    let lambda-2 = (1 - calc.sqrt(5)) / 2
+    return calc.round((1 / calc.sqrt(5)) * calc.pow(lambda-1, n) - (1 / calc.sqrt(5)) * calc.pow(lambda-2, n))
+  }
+  #fib(25)
+  ```
   
-//   #let fib(n) = {
-//     let lambda-1 = (1 + calc.sqrt(5)) / 2
-//     let lambda-2 = (1 - calc.sqrt(5)) / 2
-//     return calc.round((1 / calc.sqrt(5)) * calc.pow(lambda-1, n) - (1 / calc.sqrt(5)) * calc.pow(lambda-2, n))
-//   }
+  #let fib(n) = {
+    let lambda-1 = (1 + calc.sqrt(5)) / 2
+    let lambda-2 = (1 - calc.sqrt(5)) / 2
+    return calc.round((1 / calc.sqrt(5)) * calc.pow(lambda-1, n) - (1 / calc.sqrt(5)) * calc.pow(lambda-2, n))
+  }
   
-//   #fib(25)
+  #fib(25)
   
-//   = 
+  = 
   
-//   ```typ
-//   #set text(size: 8pt)
-//   #figure(
-//     table(
-//       columns: 10,
-//       $times$, ..range(1, 10).map(x => [#x]),
-//       ..range(1, 10).map(x => ([#x], ..range(1, 10).map(y => $#y times #x = #(x * y)$))).flatten()
-//     ),
-//   )
-//   ```
-//   #set text(size: 8pt)
-//   #figure(
-//     table(
-//       columns: 10,
-//       $times$, ..range(1, 10).map(x => [#x]),
-//       ..range(1, 10).map(x => ([#x], ..range(1, 10).map(y => $#y times #x = #(x * y)$))).flatten(),
-//     ),
-//   )
-// ]
+  ```typ
+  #set text(size: 8pt)
+  #figure(
+    table(
+      columns: 10,
+      $times$, ..range(1, 10).map(x => [#x]),
+      ..range(1, 10).map(x => ([#x], ..range(1, 10).map(y => $#y times #x = #(x * y)$))).flatten()
+    ),
+  )
+  ```
+  #set text(size: 8pt)
+  #figure(
+    table(
+      columns: 10,
+      $times$, ..range(1, 10).map(x => [#x]),
+      ..range(1, 10).map(x => ([#x], ..range(1, 10).map(y => $#y times #x = #(x * y)$))).flatten(),
+    ),
+  )
+]

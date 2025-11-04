@@ -6,7 +6,7 @@
         #align(center)[
           #set text(font: (
             "New Computer Modern",
-            "Source Serif 4",
+            "Libertinus Serif",
           ))
           #text(size: 28pt, weight: "bold")[
             #meta.course-name
@@ -28,7 +28,7 @@
         #align(center)[
           #set text(font: (
             "New Computer Modern",
-            "Source Serif 4",
+            "Libertinus Serif",
           ))
           #text(size: 28pt, weight: "bold")[
             #meta.course-name
@@ -57,15 +57,15 @@
     fonts: (
       heading: (
         "New Computer Modern",
-        "Source Serif 4",
+        "Libertinus Serif",
       ),
       text: (
         "New Computer Modern",
-        "Source Serif 4",
+        "Libertinus Serif",
       ),
       equation: (
         "New Computer Modern Math",
-        "Source Serif 4",
+        "Libertinus Serif",
       ),
     ),
   )

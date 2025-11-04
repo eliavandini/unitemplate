@@ -28,7 +28,7 @@
     text(
       meta.course-name,
       size: 36pt,
-      font: ("Source Serif 4"),
+      font: ("Libertinus Serif"),
       baseline: -0.6em,
     ),
   )
@@ -39,7 +39,7 @@
     box([
       #set text(
         size: 20pt,
-        font: ("Source Serif 4"),
+        font: ("Libertinus Serif"),
         baseline: 1em,
       )
       #set align(horizon)
@@ -70,7 +70,7 @@
       block[
         #set text(font: (
           "New Computer Modern",
-          "Source Serif 4",
+          "Libertinus Serif",
         ))
 
         #text(size: 28pt, weight: "bold")[
@@ -81,7 +81,7 @@
           #meta.subtitle
         ]
 
-        #text(size: 12pt, font: "Times New Roman")[
+        #text(size: 12pt, font: "New Computer Modern")[
           #meta.author-info
         ]
       ]
@@ -90,7 +90,7 @@
 }
 
 #let header = meta => {
-  set text(size: 10.5pt, font: "Source Serif 4")
+  set text(size: 10.5pt, font: "Libertinus Serif")
   block(
     grid(
       columns: (1fr, 1fr),
@@ -133,15 +133,15 @@
     fonts: (
       heading: (
         "New Computer Modern",
-        "Source Serif 4",
+        "Libertinus Serif",
       ),
       text: (
         "New Computer Modern",
-        "Source Serif 4",
+        "Libertinus Serif",
       ),
       equation: (
         "New Computer Modern Math",
-        "Source Serif 4",
+        "Libertinus Serif",
       ),
     ),
   )

@@ -1,6 +1,6 @@
 [package]
 name = "Gratsch"
-version = "0.0.1"
+version = "0.0.2"
 authors = ["Elia Vandini"]
 license = "MIT"
 description = "A Typst template for homework"

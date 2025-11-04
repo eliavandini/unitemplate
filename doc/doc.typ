@@ -1,11 +1,10 @@
 #import "@preview/numbly:0.1.0": numbly
-#import "@preview/indenta:0.0.3": fix-indent
-#import "@preview/codly:1.0.0": codly, codly-init
+#import "@preview/codly:1.3.0": codly, codly-init
 
 // Scripting
 
 #let param-table(..docs) = {
-  let headers = ([参数], [类型], [默认值], [说明])
+  let headers = ([Parameter], [Type], [Default], [Description])
   let items = docs
     .pos()
     .flatten()
@@ -13,9 +12,7 @@
     .map(((p, t, dv, dscr)) => (
         strong(p),
         t,
-        if dv == none [无(位置参数)] else {
-          dv
-        },
+        if dv == none [None (positional parameter)] else { dv },
         dscr,
       ))
     .flatten()
@@ -34,7 +31,7 @@
 }
 
 #let dict-struct(..docs) = {
-  let headers = ([字段], [类型], [说明])
+  let headers = ([Field], [Type], [Description])
   let items = docs
     .pos()
     .flatten()
@@ -67,7 +64,7 @@
 
 #set text(font: (
   "New Computer Modern",
-  "Source Serif 4",
+  "Libertinus Serif",
 ))
 
 #show ref: underline
@@ -84,172 +81,171 @@
   ),
 ))
 
-#set heading(numbering: numbly("{1:一}、", "{2}.", "{2}.{3}."))
+#set heading(numbering: numbly("1", "1.1", none, none))
 
-#set par(first-line-indent: 2em)
-
-#show: fix-indent()
+// #set par(first-line-indent: 2em)
 
 // Document
 
-#align(center)[#text(size: 24pt)[Ichigo 作业模板v#ichigo-meta.package.version 文档]]
+#align(center)[#text(size: 24pt)[Ichigo Homework Template v#ichigo-meta.package.version\ Translated Documentation]]
 
 #outline(depth: 2, indent: 1em)
 
-= 使用须知
+= Usage Notes
 
-ichigo 提供了一个功能库和一份文档模板, 对功能定制要求不高的用户可以直接修改模板使用.
+Please refer to the original docs form the original Ichigo repository.
+These have been translated from mandarin to english using chatGPT.
 
-功能库提供了 `config` 和 `prob` 两个函数, 前者用于处理文档内容, 后者用于产生统一形式的文档内容
+Ichigo provides both a **utility library** and a **document template**.  
+Users who don’t need heavy customization can simply modify the template directly.
 
-= 接口文档
+The library exposes two functions — `config` and `prob`.  
+- `config`: used to configure the document’s metadata and structure  
+- `prob`: used to produce standardized question–answer blocks
+
+= API Documentation
 
 == `config`
 
-=== 参数
+=== Parameters
 
-// @typstyle off
 #param-table(
-  `doc`, `content`, none, [文档内容],
-  `subtitle`, `str | none`, `none`, [作业编号(e.g. 第四周作业), 必须主动传入, 若希望留空请使用 `""`],
-  `date-str`, `str | none`, `none`, [作业编号(e.g. 第四周作业), 必须主动传入, 若希望留空请使用 `""`],
-  `theme-name`, `str`, `"simple"`, [主题名称, 可用主题见@available-themes],
-  `title-style`, `str | none`, `"whole-page"`, [标题样式, 可选值为 `"whole-page"`, `"simple"` 和 `none`],
-  `author-info`, `content`, `[]`, [作者信息, 默认为 `[]`],
-  `course-name`, `str`, `none`, [课程名称, 默认为 `none`, 必须主动传入, 若希望留空请使用 `""`],
-  `author-names`, `str | array`, `""`, [作者姓名(列表), 用于填入文档的 metadata, 默认为 `""`],
-  `heading-numberings`, `array`, `(none, none, "(1)", "a.")`, [标题编号格式, 默认为 `(none, none, "(1)", "a.")`, 具体格式参考 `numbly` 包的文档],
+  `doc`, `content`, none, [Document content],
+  `subtitle`, `str | none`, `none`, [Assignment subtitle (e.g. "Week 4 Homework"). Must be explicitly provided. Use `""` for empty.],
+  `date-str`, `str | none`, `none`, [Date string. Must be explicitly provided. Use `""` for empty.],
+  `theme-name`, `str`, `"simple"`, [Theme name. See @available-themes for options.],
+  `title-style`, `str | none`, `"whole-page"`, [Title style — `"whole-page"`, `"simple"`, or `none`],
+  `author-info`, `content`, `[]`, [Author info block, defaults to empty],
+  `course-name`, `str`, `none`, [Course name. Must be explicitly provided. Use `""` for empty.],
+  `author-names`, `str | array`, `""`, [Author names (list), used for document metadata. Defaults to `""`],
+  `lang`, `str | none`, `"en"`, [`en`, `zh`, or `none`],
 )
 
-=== 使用方法
+=== Usage
 
-用于 `show` 语句中可将整个文档置于 `config` 的 `doc` 参数中, 结合 Typst 的 `.with` 语法, 给出以下示例:
+Used inside a `show` statement to wrap the entire document as the `doc` parameter.  
+Combined with Typst’s `.with` syntax, for example:
 
 ```typ
 #show: config.with(
-  course-name: "高等 Typst 学",
-  subtitle: "第一次作业",
+  course-name: "Advanced Typst",
+  subtitle: "Homework 1",
   date-str: datetime.today().display(),
-  author-names: "?sjfh",
-  author-info: [sjfh from PKU-Typst]
+  author-names: "Elia",
+  author-info: [Elia — University of Typst],
+  lang: "en"
 )
 
-这里写作业内容
+Write your assignment content here.
 ```
 
 == `prob`
 
-=== 参数
+=== Parameters
 
-// @typstyle off
 #param-table(
-  `question`, `content`, none, [题目内容],
-  `solution`, `content`, none, [解答内容],
-  `title`, `content | auto`, `auto`, [标题, 默认为自动生成编号],
+`question`, `content`, none, [Question content],
+`solution`, `content`, none, [Solution content],
+`title`, `content | auto`, `auto`, [Title; defaults to auto-generated numbering],
 )
 
-=== 使用方法
+=== Usage
 
-示例:
+Example:
 
 ```typ
 #prob[
-  你好呀
+  Hello there
 ][
-  爱用 Typst 的小朋友
+  Typst-loving student
 ]
 
-#prob(title: [小试牛刀])[
-  请给出 Fibonacci 数列的第 25 项
+#prob(title: [Warm-up Exercise])[
+  Compute the 25th Fibonacci number.
 ][
   #let f(n) = {
-    if n <= 2 {
-      return 1
-    }
+    if n <= 2 { return 1 }
     return f(n - 1) + f(n - 2)
   }
   #f(25)
 ]
 ```
 
-= 主题开发 <theme-dev>
+= Theme Development <theme-dev>
 
-== 现有内置主题
+== Built-in Themes
 
 #import "../src/themes.typ": THEMES
 #figure(
-  table(
-    columns: (15%, 60%),
-    table.header([主题名称], [预览图]),
-    ..THEMES.map(t => (t, [暂无])).flatten()
-  ),
-  caption: [内置主题],
+table(
+columns: (15%, 60%),
+table.header([Theme Name], [Preview]),
+..THEMES.map(t => (t, [Unavailable])).flatten()
+),
+caption: [Built-in Themes],
 ) <available-themes>
 
-== 主题开发
+== Creating a Custom Theme
 
-新建主题需要在 `/src/themes/{theme_name}/lib.typ` 文件中包含一个名为 `theme` 的函数, 其中 `{theme_name}` 为主题名称. 也可单独创建模板并将 `theme` 函数传入 `custom-theme` 参数中.
+To create a new theme, add a file at `/src/themes/{theme_name}/lib.typ`
+that defines a function named `theme`.
 
-对 `theme` 函数的要求为:
+* `{theme_name}` corresponds to your theme’s directory name.
+* You can also pass a custom function via the `custom-theme` parameter instead of using a directory.
 
-- 接受一个位置参数 `meta`, 格式见 @struct-meta
-- 返回一个 `theme`, 格式见 @struct-theme
+Requirements for the `theme` function:
 
-并记得将该主题名称加入 `/src/themes.typ` 文件中的 `THEMES` 列表中.
+* Must accept one positional argument `meta` (see @struct-meta)
+* Must return a dictionary in the format of @struct-theme
+* Add the new theme name to the `THEMES` list in `/src/themes.typ`*
 
-== 特定数据结构
+== Data Structures
 
 === `meta` <struct-meta>
 
-`dictionary` 类型, 包含以下字段:
+A `dictionary` with the following fields:
 
-// @typstyle off
 #dict-struct(
-  `course-name`, `str`, [课程名称],
-  `date-str`, `str`, [作业编号],
-  `author-info`, `content`, [作者信息],
-  `author-names`, `str | array`, [作者姓名(列表), 用于填入文档的 metadata],
-  `..opt`, `dictionary`, [其他参数, 可用于接受主题相关选项],
+`course-name`, `str`, [Course name],
+`date-str`, `str`, [Date string or assignment number],
+`author-info`, `content`, [Author information],
+`author-names`, `str | array`, [List of author names for document metadata],
+`..opt`, `dictionary`, [Other theme-related options],
 )
 
 === `theme` <struct-theme>
 
-`dictionary` 类型, 包含以下字段:
+A `dictionary` with the following fields:
 
-// @typstyle off
 #dict-struct(
-  `title`, `dictionary`, [标题样式],
-  `page-setting`, `dictionary`, [页面设置],
-  `fonts`, `dictionary`, [字体设置],
-  `styles`, `(doc) => result`, [样式设置，可选，不设置则为无附加样式],
+`title`, `dictionary`, [Title configuration],
+`page-setting`, `dictionary`, [Page header and footer],
+`fonts`, `dictionary`, [Font settings],
+`styles`, `(doc) => result`, [Optional style function; if omitted, no extra styles are applied],
 )
 
-其中 `title` 字段包含以下字段:
+The `title` dictionary contains:
 
-// @typstyle off
 #dict-struct(
-  `whole-page`, `content`, [整页模式],
-  `simple`, `content`, [简易模式],
+`whole-page`, `content`, [Full-page mode],
+`simple`, `content`, [Simple mode],
 )
 
-`page-setting` 字段包含以下字段:
+The `page-setting` dictionary contains:
 
-// @typstyle off
 #dict-struct(
-  `header`, `content`, [页眉],
-  `footer`, `content`, [页脚],
+`header`, `content`, [Page header],
+`footer`, `content`, [Page footer],
 )
 
-`fonts` 字段包含以下字段:
+The `fonts` dictionary contains:
 
-// @typstyle off
 #dict-struct(
-  `heading`, link(<struct-font-schema>)[`font-schema`], [标题],
-  `text`, link(<struct-font-schema>)[`font-schema`], [正文],
-  `equation`, link(<struct-font-schema>)[`font-schema`], [公式],
+`heading`, link(<struct-font-schema>)[`font-schema`], [Heading font],
+`text`, link(<struct-font-schema>)[`font-schema`], [Body font],
+`equation`, link(<struct-font-schema>)[`font-schema`], [Math font],
 )
 
 === `font-schema` <struct-font-schema>
 
-`str` 或 `tuple` 类型
-
+Can be a `str` or a `tuple`.
