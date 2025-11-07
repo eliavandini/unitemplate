@@ -11,14 +11,16 @@
   author-names: "First name last name",
   title-style: "simple",
   theme-name: "sketch",
-  heading-numberings: ("1.", "1.a)", none, none),
+  heading-numberings: ("{1}.", "{1}.{2:a})", none, none),
   lang: "de"
 )
 
 =
+=
 ==
 === eiurfnwiererg
 ========
+==
 arjahfaewf
 strhsththsrth
 th
@@ -30,7 +32,7 @@ hsrthsrthrshstrh
   = 
   Fibonacci
 ][
-  = 
+  =
   ```typ
   #let fib(n) = {
     if n in (1, 2) {
