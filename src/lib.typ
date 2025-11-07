@@ -31,7 +31,7 @@
   date-str: none,
   author-info: [],
   author-names: "",
-  heading-numberings: ("1.", "1.a)", none, none),
+  heading-numberings: ("{1}.", "{1}.{2:a})", none, none),
   title-style: "simple",
   theme-name: "simple",
   lang: "en",
